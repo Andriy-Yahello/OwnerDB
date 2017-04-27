@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище MainModel" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=E:\app\own\Test\Test\App_Data\Main.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="OwnerDetails">
+          <Key>
+            <PropertyRef Name="Owner_detail_No" />
+          </Key>
+          <Property Name="Owner_detail_No" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Owner_No" Type="int" Nullable="false" />
+          <Property Name="Item_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="QTY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OwnerMasters">
+          <Key>
+            <PropertyRef Name="Owner_No" />
+          </Key>
+          <Property Name="Owner_No" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Table_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
+        <EntityContainer Name="Хранилище MainModelContainer">
+          <EntitySet Name="OwnerDetails" EntityType="Self.OwnerDetails" store:Type="Tables" />
+          <EntitySet Name="OwnerMasters" EntityType="Self.OwnerMasters" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OwnerDetail">
+          <Key>
+            <PropertyRef Name="Owner_detail_No" />
+          </Key>
+          <Property Name="Owner_detail_No" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Owner_No" Type="Int32" Nullable="false" />
+          <Property Name="Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QTY" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OwnerMaster">
+          <Key>
+            <PropertyRef Name="Owner_No" />
+          </Key>
+          <Property Name="Owner_No" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Table_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Count" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="MainEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OwnerDetails" EntityType="Self.OwnerDetail" />
+          <EntitySet Name="OwnerMasters" EntityType="Self.OwnerMaster" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MainModelContainer" CdmEntityContainer="MainEntities1">
+          <EntitySetMapping Name="OwnerDetails">
+            <EntityTypeMapping TypeName="MainModel.OwnerDetail">
+              <MappingFragment StoreEntitySet="OwnerDetails">
+                <ScalarProperty Name="Owner_detail_No" ColumnName="Owner_detail_No" />
+                <ScalarProperty Name="Owner_No" ColumnName="Owner_No" />
+                <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OwnerMasters">
+            <EntityTypeMapping TypeName="MainModel.OwnerMaster">
+              <MappingFragment StoreEntitySet="OwnerMasters">
+                <ScalarProperty Name="Owner_No" ColumnName="Owner_No" />
+                <ScalarProperty Name="Table_ID" ColumnName="Table_ID" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

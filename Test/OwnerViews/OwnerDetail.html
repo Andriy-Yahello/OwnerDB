@@ -1,0 +1,76 @@
+﻿
+
+
+<!--<h2>{{message}}</h2>
+<h2>{{idi}}</h2>-->
+
+
+<!--<h2>{{totalQTY}}</h2>-->
+
+
+
+<div class="row grid-row">
+
+    <div class="col-xs-4 col-md-4">
+
+    </div>
+
+    <div style="align-items: center; margin-left: 25px;" class="col-xs-8 col-md-4">
+
+        <h2 style="text-align: center;">{{Title}}s' Pets</h2>
+        <div style="margin-bottom:15px;"><a  href="#!/">Back to Owners List</a></div>
+        <div id="main" class="input-group">
+
+            <input style="margin-left: 15px;" type="text" type="text" id="ename" required ng-model="Item_Name" placeholder="Enter Pet Name" />
+            <!--<input type="text" id="pet" required ng-model="Pet" placeholder="Pet Name" />-->
+            <input style="box-shadow: 2px 2px black;" type="button" id="save" value="Add" ng-click="save()" />
+            <input style="box-shadow: 2px 2px black;" type="button" id="new" value="New" ng-click="clear()" />
+            <!--<input type="button" id="delete" value="Delete" ng-click="delete()" />-->
+
+        </div>
+
+        <div id="under"></div>
+
+
+        <div>
+
+
+            <table style="margin-left: 10px;"class="col-sm-10">
+                <tr>Total count: {{OwnerDetails.length}}</tr>
+                <tr >
+                    <th >
+                        <button style="box-shadow: 2px 2px black;" ng-click="sortBy('Item_Name')">Name</button>
+                        <span class="sortorder" ng-show="propertyName === 'Item_Name'" ng-class="{reverse: reverse}"></span>
+                    </th>
+                </tr>
+
+
+
+
+                <tr ng-repeat="Emp in OwnerDetails | orderBy:propertyName:reverse | startFrom: (currentPage - 1)*pageSize | limitTo: pageSize ">
+
+                    <td ng-click="get(Emp)">
+
+                        {{Emp.Item_Name}}
+
+                        <input style="box-shadow: 2px 2px black; float:right"; type="button" id="delete" value="Delete" ng-click="delete(Itwm._Name)" />
+                    </td>
+                    
+
+
+                </tr>
+
+
+
+
+            </table>
+            <div>{{Message}}</div>
+
+            <ul uib-pagination total-items="OwnerDetails.length" ng-model="currentPage" items-per-page="pageSize"></ul>﻿
+        </div>
+
+        <div class="col-xs-4 col-md-4"></div>
+    </div>
+
+
+</div>

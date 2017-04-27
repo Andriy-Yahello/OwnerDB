@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="OwnerDetail">
+    <Key>
+      <PropertyRef Name="Owner_detail_No" />
+    </Key>
+    <Property Name="Owner_detail_No" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Owner_No" Type="Int32" Nullable="false" />
+    <Property Name="Item_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QTY" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OwnerMaster">
+    <Key>
+      <PropertyRef Name="Owner_No" />
+    </Key>
+    <Property Name="Owner_No" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Table_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MainEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="OwnerDetails" EntityType="Self.OwnerDetail" />
+    <EntitySet Name="OwnerMasters" EntityType="Self.OwnerMaster" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище MainModelContainer" CdmEntityContainer="MainEntities">
+    <EntitySetMapping Name="OwnerDetails">
+      <EntityTypeMapping TypeName="MainModel.OwnerDetail">
+        <MappingFragment StoreEntitySet="OwnerDetails">
+          <ScalarProperty Name="Owner_detail_No" ColumnName="Owner_detail_No" />
+          <ScalarProperty Name="Owner_No" ColumnName="Owner_No" />
+          <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OwnerMasters">
+      <EntityTypeMapping TypeName="MainModel.OwnerMaster">
+        <MappingFragment StoreEntitySet="OwnerMasters">
+          <ScalarProperty Name="Owner_No" ColumnName="Owner_No" />
+          <ScalarProperty Name="Table_ID" ColumnName="Table_ID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

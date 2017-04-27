@@ -1,0 +1,59 @@
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<html>
+
+
+<head title="">
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/controllers.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/ui-bootstrap-tpls.js"></script>
+
+    <style type="text/css">
+        #tblContainer, #tblcollections, #tblCRUD, td {
+            border: double;
+        }
+
+        th {
+            background-color: lightgrey;
+        }
+
+        #dvcollection {
+            height: 500px;
+            overflow-y: scroll;
+        }
+
+        .sortorder:after {
+            content: '\25b2';
+        }
+
+        .sortorder.reverse:after {
+            content: '\25bc';
+        }
+
+        #main {
+            margin-bottom: 25px;
+        }
+
+        #under {
+            width: 100%;
+            height: 4px;
+            background-color: lightgrey;
+            border-bottom-left-radius: 100%;
+            border-bottom-right-radius: 100%;
+            border-top-left-radius: 100%;
+            border-top-right-radius: 100%;
+        }
+    </style>
+
+</head>
+@*               HOME                 *@
+<body ng-app="TestApp">
+    <div ng-view>
+
+    </div>
+</body>
+</html>

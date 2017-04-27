@@ -1,0 +1,74 @@
+﻿
+
+
+<div>
+    
+
+
+
+
+    <div class="row grid-row">
+        <div class="col-xs-4 col-md-4">
+
+        </div>
+        <div style="align-items: center; margin-left: 25px;" class="col-xs-8 col-md-4">
+
+            <h2 style="text-align: center;">{{message}}</h2>
+
+            <div id="main" class="input-group">
+
+                <input style="margin-left: 15px;"type="text" id="ename" required ng-model="Table_ID" placeholder="Enter Owner Name" />
+                <!--<input type="text" id="pet" required ng-model="Pet" placeholder="Pet Name" />-->
+                <input style="box-shadow: 2px 2px black;" type="button" id="save" value="Add" ng-click="save()" />
+                <input style="box-shadow: 2px 2px black;" type="button" id="new" value="New" ng-click="clear()" />
+                <!--<input type="button" id="delete" value="Delete" ng-click="delete()" />-->
+
+            </div>
+
+            <div id="under"></div>
+
+            <table style="margin-left: 25px;">
+                <thead>
+                    <tr>
+
+                        <th class="col-sm-6">
+                            <button style="box-shadow: 2px 2px black;" ng-click="sortBy('Table_ID')">Name</button>
+                            <span class="sortorder" ng-show="propertyName === 'Table_ID'" ng-class="{reverse: reverse}"></span>
+                        </th>
+                        <th class="col-sm-6">Pet's Count</th>
+                    </tr>
+                </thead>
+                <tr >Total count: {{OwnerMasters.length}}</tr>
+
+                <tbody>
+                    <tr ng-repeat="Emp in OwnerMasters | orderBy:propertyName:reverse | startFrom: (currentPage - 1)*pageSize | limitTo: pageSize">
+
+                        <td ng-click="get(Emp)">
+
+                            <span><a href="#!/OwnerDetail/{{Emp.Owner_No}}">{{Emp.Table_ID}}</a></span>
+                            <!--<span id="selection" ng-click="selectItem({{Emp.OwnerName}})"></span>-->
+
+                        </td>
+
+                        <td>
+                            <span>{{Emp.Count}}</span>
+                            <input style="box-shadow: 2px 2px black; float:right"; type="button" id="delete" value="Delete" ng-click="delete()" />
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+            <div>{{Message}}</div>
+            <ul uib-pagination total-items="OwnerMasters.length" ng-model="currentPage" items-per-page="pageSize"></ul>﻿
+        </div>
+        
+        <div class="col-xs-4 col-md-4"></div>
+     </div>
+
+
+
+
+</div>
